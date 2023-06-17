@@ -1,0 +1,72 @@
+{
+  "responseHeader": {
+    "numRecordsReturned": 1,
+    "responseMessageId": "1_1587132524_666_45_l73d001m_COFDS",
+    "requestMessageId": "6da6b8b024532a2e0eacb1af58581",
+    "messageDateTime": "2020-04-17 14:08:45.546"
+  },
+  "responseData": {
+    "panList": [
+      {
+        "panData": {
+          "panResponseMsg": "Success",
+          "pAN": "4072208010000000",
+          "merchants": [
+            {
+              "mrchDbaName": "STAR1",
+              "lastTranBillCurrency": "AUD",
+              "mrchName": "STAR1&^ H",
+              "cardAcceptorId": "103456789123456",
+              "totalTranCount": "4",
+              "mrchDbaId": "799",
+              "lastTranCurrency": "EUR",
+              "lastMrchTranDt": "2018-11-12",
+              "lastTranAmtUSD": "123.6",
+              "vAUUpdateStatus": "N",
+              "acctNumOld4Digit": "0000",
+              "mCC": "5968",
+              "tokenPANReplacementStatus": "N",
+              "lastTranAmt": "100",
+              "lastTranAmtBillCurrency": "100",
+              "mrchAddr": "123 Main Street, New York, NY 94043",
+              "tokenReqstrId": "",
+              "vAULastUpdateDate": "",
+              "mrchURL": "www.star1.com",
+              "confidenceInd": "M",
+              "tranTypeDetails": [
+                {
+                  "lastTranBillCurrency": "AUD",
+                  "lastTranCurrency": "EUR",
+                  "lastTranAmt": "100",
+                  "lastTranAmtBillCurrency": "100",
+                  "lastTranAmtUSD": "123.6",
+                  "tranCount": 2,
+                  "lastTranDateTime": "2018-11-12 12:23:32.000",
+                  "tranType": "CUSTOMER_COF"
+                },
+                {
+                  "lastTranBillCurrency": "AUD",
+                  "lastTranCurrency": "EUR",
+                  "lastTranAmt": "100",
+                  "lastTranAmtBillCurrency": "100",
+                  "lastTranAmtUSD": "123.6",
+                  "tranCount": 2,
+                  "lastTranDateTime": "2018-01-12 12:23:32.000",
+                  "tranType": "INSTALLMENT"
+                }
+              ],
+              "tokenPANReplacementDate": "",
+              "lastTranDateTime": "2018-11-12 12:23:32.000",
+              "mrchPhoneNum": "14157894040"
+            }
+          ]
+        }
+      }
+    ],
+    "group": "STANDARD"
+  },
+  "status": {
+    "statusDescription": "COF Service - Success",
+    "statusCode": "CDI000"
+  }
+}
