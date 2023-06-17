@@ -1,5 +1,6 @@
-<img align="left" alt="SVG" src="https://developer.visa.com/images/visa_logo.svg" width="25%" height="25%" />
+<img align="left" alt="SVG" src="https://developer.visa.com/images/visa_logo.svg" width="20%" height="20%" />
 
+<br>
 ## VTS Payment Technology
 
 Security technology from Visa, replaces sensitive account information, such as the 16-digit primary account number, with a unique digital identifier called a token. 
