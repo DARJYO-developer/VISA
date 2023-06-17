@@ -1,0 +1,634 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Card on File Data Inquiry",
+    "description": "",
+    "version": "1"
+  },
+  "servers": [
+    {
+      "url": "https://sandbox.api.visa.com",
+      "description": "Sandbox server"
+    }
+  ],
+  "security": [],
+  "tags": [
+    {
+      "name": "Card-On-File Data Service API",
+      "description": "Card-On-File Data API allows to enable digital control capabilities in Issuer’s online mobile application or web application to provide visibility to the consumers where their card (PAN)/token credentials are stored to initiate Card-On-File Data API/e-commerce transactions and where the credentials are updated in case of a card reissuance or token status updates"
+    }
+  ],
+  "paths": {
+    "/cofds-web/v1/datainfo": {
+      "post": {
+        "tags": [
+          "Card-On-File Data Service API"
+        ],
+        "summary": "Card-On-File Data Service",
+        "description": "Retrieve Card-On-File Data",
+        "operationId": "Card-On-File Data Service",
+        "requestBody": {
+          "description": "Card-On-File Data request query",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/COFDSServiceRequest"
+              },
+              "examples": {
+                "Default": {
+                  "summary": "Default",
+                  "value": {
+                    "requestHeader": {
+                      "requestMessageId": "6da6b8b024532a2e0eacb1af58581",
+                      "messageDateTime": "2019-02-35 05:25:12.327"
+                    },
+                    "requestData": {
+                      "pANs": [
+                        4072208010000000
+                      ],
+                      "group": "STANDARD"
+                    }
+                  }
+                }
+              },
+              "example": null
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/COFDSServiceResponse"
+                },
+                "examples": {
+                  "Default": {
+                    "summary": "Default",
+                    "value": {
+                      "responseHeader": {
+                        "numRecordsReturned": 1,
+                        "responseMessageId": "1_1587132524_666_45_l73d001m_COFDS",
+                        "requestMessageId": "6da6b8b024532a2e0eacb1af58581",
+                        "messageDateTime": "2020-04-17 14:08:45.546"
+                      },
+                      "responseData": {
+                        "panList": [
+                          {
+                            "panData": {
+                              "panResponseMsg": "Success",
+                              "pAN": "4072208010000000",
+                              "merchants": [
+                                {
+                                  "mrchDbaName": "STAR1",
+                                  "lastTranBillCurrency": "AUD",
+                                  "mrchName": "STAR1&^ H",
+                                  "cardAcceptorId": "103456789123456",
+                                  "totalTranCount": "4",
+                                  "mrchDbaId": "799",
+                                  "lastTranCurrency": "EUR",
+                                  "lastMrchTranDt": "2018-11-12",
+                                  "lastTranAmtUSD": "123.6",
+                                  "vAUUpdateStatus": "N",
+                                  "acctNumOld4Digit": "0000",
+                                  "mCC": "5968",
+                                  "tokenPANReplacementStatus": "N",
+                                  "lastTranAmt": "100",
+                                  "lastTranAmtBillCurrency": "100",
+                                  "mrchAddr": "123 Main Street, New York, NY 94043",
+                                  "tokenReqstrId": "",
+                                  "vAULastUpdateDate": "",
+                                  "mrchURL": "www.star1.com",
+                                  "confidenceInd": "M",
+                                  "tranTypeDetails": [
+                                    {
+                                      "lastTranBillCurrency": "AUD",
+                                      "lastTranCurrency": "EUR",
+                                      "lastTranAmt": "100",
+                                      "lastTranAmtBillCurrency": "100",
+                                      "lastTranAmtUSD": "123.6",
+                                      "tranCount": 2,
+                                      "lastTranDateTime": "2018-11-12 12:23:32.000",
+                                      "tranType": "CUSTOMER_COF"
+                                    },
+                                    {
+                                      "lastTranBillCurrency": "AUD",
+                                      "lastTranCurrency": "EUR",
+                                      "lastTranAmt": "100",
+                                      "lastTranAmtBillCurrency": "100",
+                                      "lastTranAmtUSD": "123.6",
+                                      "tranCount": 2,
+                                      "lastTranDateTime": "2018-01-12 12:23:32.000",
+                                      "tranType": "INSTALLMENT"
+                                    }
+                                  ],
+                                  "tokenPANReplacementDate": "",
+                                  "lastTranDateTime": "2018-11-12 12:23:32.000",
+                                  "mrchPhoneNum": "14157894040"
+                                }
+                              ]
+                            }
+                          }
+                        ],
+                        "group": "STANDARD"
+                      },
+                      "status": {
+                        "statusDescription": "COF Service - Success",
+                        "statusCode": "CDI000"
+                      }
+                    }
+                  }
+                },
+                "example": null
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/COFDSServiceResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/COFDSServiceResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal service failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/COFDSServiceResponse"
+                }
+              }
+            }
+          }
+        },
+        "x-codegen-request-body-name": "body",
+        "x-operationVersions": [
+          {
+            "label": "v1 - Latest",
+            "operationPointer": "#/paths/~1cofds-web~1v1~1datainfo/post",
+            "default": false
+          }
+        ],
+        "x-hideTryIt": true
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Status": {
+        "required": [
+          "statusCode",
+          "statusDescription"
+        ],
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "maxLength": 6,
+            "minLength": 6,
+            "type": "string",
+            "description": "Status Code of the Service Request"
+          },
+          "statusDescription": {
+            "type": "string",
+            "description": "A description of the Status Code. A brief description indicating the result of the Service Request"
+          }
+        }
+      },
+      "TranType": {
+        "required": [
+          "tranCount",
+          "tranType"
+        ],
+        "type": "object",
+        "properties": {
+          "tranType": {
+            "type": "string",
+            "description": "The transaction type code",
+            "enum": [
+              "STOP_ORDER",
+              "SCHEDULED_RECURRING",
+              "UNSCHEDULED_RECURRING",
+              "INSTALLMENT",
+              "MERCHANT_COF",
+              "CUSTOMER_COF",
+              "UNKNOWN_COF",
+              "MAIL_TELEPHONE",
+              "BILL_PAY",
+              "ECOM_OTHER",
+              "AUTH_VERIFICATION"
+            ]
+          },
+          "tranCount": {
+            "minimum": 0,
+            "type": "integer",
+            "description": "Transaction count for the type",
+            "format": "int64"
+          },
+          "lastTranAmt": {
+            "type": "string",
+            "description": "Last transaction amount in currency used in transaction for the type"
+          },
+          "lastTranAmtUSD": {
+            "type": "string",
+            "description": "Last transaction amount in USD"
+          },
+          "lastTranCurrency": {
+            "maxLength": 3,
+            "minLength": 0,
+            "type": "string",
+            "description": "Currency used in last transaction for the type. Format: ISO 4217"
+          },
+          "lastTranDateTime": {
+            "pattern": "^([0-9]{4})-([0-1][0-9])-([0-3][0-9])\\s([0-1][0-9]|[2][0-3]):([0-5][0-9]):([0-5][0-9]).([0-9][0-9][0-9])$",
+            "type": "string",
+            "description": "Date and time of last transaction timestamp for the type. Format: yyyy-MM-dd HH:mm:ss.SSS"
+          },
+          "lastTranBillCurrency": {
+            "maxLength": 3,
+            "minLength": 0,
+            "type": "string",
+            "description": "Last transaction billing currency"
+          },
+          "lastTranAmtBillCurrency": {
+            "type": "string",
+            "description": "Last transaction amount in bill currency"
+          }
+        }
+      },
+      "PANDataWrapper": {
+        "type": "object",
+        "properties": {
+          "panData": {
+            "$ref": "#/components/schemas/PANData"
+          }
+        }
+      },
+      "ResponseHeader": {
+        "required": [
+          "messageDateTime",
+          "numRecordsReturned",
+          "requestMessageId",
+          "responseMessageId"
+        ],
+        "type": "object",
+        "properties": {
+          "messageDateTime": {
+            "pattern": "^((19|2[0-9])[0-9]{2})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])\\s([0-1][0-9]|[2][0-3]):([0-5][0-9]):([0-5][0-9]).([0-9][0-9][0-9])$",
+            "type": "string",
+            "description": "Date and time at which response is sent (up to milliseconds in UTC). Format: yyyy-MM-dd HH:mm:ss.SSS",
+            "example": "2018-09-19 06:01:00.601"
+          },
+          "requestMessageId": {
+            "maxLength": 50,
+            "minLength": 0,
+            "pattern": "^$|^[\\w-._]+$",
+            "type": "string",
+            "description": "A string uniquely identifies the service request. Response will contain same Message Id as received from requesting application",
+            "example": "6da60e1b8b024532a2e0eacb1af5858132a2e0eacb1af58581"
+          },
+          "responseMessageId": {
+            "type": "string",
+            "description": "Correlation id which uniquely identifies the current request-response processing"
+          },
+          "numRecordsReturned": {
+            "minimum": 0,
+            "type": "integer",
+            "description": "Number of records returned. Note: Matched records may differ from returned records if Max Records is defined or system limit is exceeded",
+            "format": "int32"
+          }
+        }
+      },
+      "Merchant": {
+        "required": [
+          "acctNumOld4Digit",
+          "cardAcceptorId",
+          "confidenceInd",
+          "lastMrchTranDt",
+          "lastTranAmt",
+          "mCC",
+          "mrchAddr",
+          "mrchDbaId",
+          "mrchDbaName",
+          "mrchName",
+          "mrchPhoneNum",
+          "mrchURL",
+          "tokenPANReplacementDate",
+          "tokenPANReplacementStatus",
+          "tokenReqstrId",
+          "totalTranCount",
+          "vAULastUpdateDate",
+          "vAUUpdateStatus"
+        ],
+        "type": "object",
+        "properties": {
+          "mCC": {
+            "type": "string",
+            "description": "Merchant Category Code"
+          },
+          "mrchURL": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "Merchant URL"
+          },
+          "mrchAddr": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "Merchant Address"
+          },
+          "mrchName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "Cleansed Merchant Name"
+          },
+          "mrchDbaId": {
+            "type": "string",
+            "description": "Merchant DBA ID"
+          },
+          "lastTranAmt": {
+            "type": "string",
+            "description": "Last transaction amount in currency used in transaction"
+          },
+          "mrchDbaName": {
+            "maxLength": 40,
+            "minLength": 0,
+            "type": "string",
+            "description": "Merchant DBA Name"
+          },
+          "mrchPhoneNum": {
+            "maxLength": 40,
+            "minLength": 0,
+            "type": "string",
+            "description": "Merchant Phone Number"
+          },
+          "confidenceInd": {
+            "pattern": "^$|^[CEM]$",
+            "type": "string",
+            "description": "Confidence Indicator"
+          },
+          "tokenReqstrId": {
+            "maxLength": 11,
+            "minLength": 0,
+            "type": "string",
+            "description": "Token Requestor ID"
+          },
+          "cardAcceptorId": {
+            "maxLength": 15,
+            "minLength": 0,
+            "type": "string",
+            "description": "Card acceptor identification code"
+          },
+          "lastMrchTranDt": {
+            "pattern": "^$|^((19|2[0-9])[0-9]{2})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$",
+            "type": "string",
+            "description": "Date when transaction was made with the merchant",
+            "example": "2018-07-18"
+          },
+          "lastTranAmtUSD": {
+            "type": "string",
+            "description": "Last transaction amount in USD"
+          },
+          "totalTranCount": {
+            "maxLength": 19,
+            "minLength": 0,
+            "type": "string",
+            "description": "Total Transaction Count"
+          },
+          "tranTypeDetails": {
+            "type": "array",
+            "description": "Details in transaction type level",
+            "items": {
+              "$ref": "#/components/schemas/TranType"
+            }
+          },
+          "vAUUpdateStatus": {
+            "pattern": "^$|^Y{1}$|^N{1}$",
+            "type": "string",
+            "description": "VAU Update Status, Y: The record find a match in VAU, N: Record Does not find a match in VAU"
+          },
+          "acctNumOld4Digit": {
+            "pattern": "^$|^[0-9]{4}$",
+            "type": "string",
+            "description": "Old Account Number's last 4 digit"
+          },
+          "lastTranCurrency": {
+            "maxLength": 3,
+            "minLength": 0,
+            "type": "string",
+            "description": "Currency used in last transaction. Format: ISO 4217"
+          },
+          "lastTranDateTime": {
+            "pattern": "^([0-9]{4})-([0-1][0-9])-([0-3][0-9])\\s([0-1][0-9]|[2][0-3]):([0-5][0-9]):([0-5][0-9]).([0-9][0-9][0-9])$",
+            "type": "string",
+            "description": "Date and time of last transaction timestamp. Format: yyyy-MM-dd HH:mm:SSS"
+          },
+          "vAULastUpdateDate": {
+            "pattern": "^$|^((19|2[0-9])[0-9]{2})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$",
+            "type": "string",
+            "description": "Update date when VAU updated the merchant with new PAN data",
+            "example": "2018-07-18"
+          },
+          "sponsoredMerchantId": {
+            "maxLength": 20,
+            "minLength": 0,
+            "type": "string",
+            "description": "Sponsored Merchant ID"
+          },
+          "lastTranBillCurrency": {
+            "maxLength": 3,
+            "minLength": 0,
+            "type": "string",
+            "description": "Billing currency used in last transaction. Format: ISO 4217"
+          },
+          "paymentFacilitatorId": {
+            "maxLength": 15,
+            "minLength": 0,
+            "type": "string",
+            "description": "Payment Facilitator ID"
+          },
+          "lastTranAmtBillCurrency": {
+            "type": "string",
+            "description": "Last transaction amount in billing currency"
+          },
+          "tokenPANReplacementDate": {
+            "pattern": "^$|^((19|2[0-9])[0-9]{2})-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$",
+            "type": "string",
+            "description": "TokenPANReplacement Update date",
+            "example": "2018-07-18"
+          },
+          "tokenPANReplacementStatus": {
+            "pattern": "^$|^Y{1}$|^N{1}$",
+            "type": "string",
+            "description": "TokenPANReplacement Update Status, Y: The record find a match, N: Record Does not find a match"
+          }
+        }
+      },
+      "RequestData": {
+        "required": [
+          "group",
+          "pANs"
+        ],
+        "type": "object",
+        "properties": {
+          "pANs": {
+            "maxItems": 1,
+            "minItems": 1,
+            "type": "array",
+            "description": "The PAN card-on-file data are required for",
+            "items": {
+              "type": "string"
+            }
+          },
+          "group": {
+            "pattern": "STANDARD",
+            "type": "string",
+            "description": "Grouping of response fields a client is entitled to",
+            "enum": [
+              "STANDARD"
+            ]
+          }
+        }
+      },
+      "COFDSServiceRequest": {
+        "required": [
+          "requestData",
+          "requestHeader"
+        ],
+        "type": "object",
+        "properties": {
+          "requestData": {
+            "$ref": "#/components/schemas/RequestData"
+          },
+          "requestHeader": {
+            "$ref": "#/components/schemas/RequestHeader"
+          }
+        }
+      },
+      "ResponseData": {
+        "required": [
+          "group",
+          "panList"
+        ],
+        "type": "object",
+        "properties": {
+          "group": {
+            "pattern": "STANDARD",
+            "type": "string",
+            "description": "Grouping of response fields a client is entitled to",
+            "enum": [
+              "STANDARD"
+            ]
+          },
+          "panList": {
+            "maxItems": 1,
+            "minItems": 1,
+            "type": "array",
+            "description": "List of PANs",
+            "items": {
+              "$ref": "#/components/schemas/PANDataWrapper"
+            }
+          }
+        }
+      },
+      "RequestHeader": {
+        "required": [
+          "messageDateTime",
+          "requestMessageId"
+        ],
+        "type": "object",
+        "properties": {
+          "messageDateTime": {
+            "pattern": "^([0-9]{4})-([0-1][0-9])-([0-3][0-9])\\s([0-1][0-9]|[2][0-3]):([0-5][0-9]):([0-5][0-9]).([0-9][0-9][0-9])$",
+            "type": "string",
+            "description": "Date and time at which request is sent (up to milliseconds in UTC). Format: yyyy-MM-dd HH:mm:ss.SSS",
+            "example": "2018-09-19 06:01:00.601"
+          },
+          "requestMessageId": {
+            "maxLength": 50,
+            "minLength": 0,
+            "pattern": "^[\\w-._]+$",
+            "type": "string",
+            "description": "A string which uniquely identifies the service request. Requesting application need to create this unique message Id",
+            "example": "6da60e1b8b024532a2e0eacb1af5858132a2e0eacb1af58581"
+          }
+        }
+      },
+      "COFDSServiceResponse": {
+        "required": [
+          "responseHeader",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/Status"
+          },
+          "responseData": {
+            "$ref": "#/components/schemas/ResponseData"
+          },
+          "responseHeader": {
+            "$ref": "#/components/schemas/ResponseHeader"
+          }
+        }
+      },
+      "PANData": {
+        "required": [
+          "pAN",
+          "panResponseMsg"
+        ],
+        "type": "object",
+        "properties": {
+          "pAN": {
+            "type": "string",
+            "description": "Account number"
+          },
+          "merchants": {
+            "type": "array",
+            "description": "List of merchants associated which has Card-On-File Data for the particular PAN",
+            "items": {
+              "$ref": "#/components/schemas/Merchant"
+            }
+          },
+          "panResponseMsg": {
+            "maxLength": 128,
+            "minLength": 0,
+            "type": "string",
+            "description": "String representing success or failure for the particular PAN",
+            "example": "Success"
+          }
+        }
+      }
+    },
+    "responses": {},
+    "parameters": {},
+    "examples": {},
+    "requestBodies": {},
+    "headers": {},
+    "callbacks": {}
+  },
+  "x-tagGroups": [
+    {
+      "name": "API Reference",
+      "tags": [
+        "Card-On-File Data Service API"
+      ]
+    }
+  ]
+}
