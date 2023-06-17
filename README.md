@@ -41,3 +41,14 @@ Card-On-File Data API allows to enable digital control capabilities in Issuer’
 
 <br>
 Card-On-File Data Service (v1 - Latest)
+  
+#### User Experience
+  
+High-level user experience and the usage of Card-On-File Data Inquiry by the clients  
+<img align="left" alt="SVG" src="https://developer.visa.com/images2/products/visa_account_management_suite/vams_user_experience.jpg" width="100%" height="100%" />  
+  
+#### Key Stakeholders
+Key stakeholders involved in the service utilization and the benefits that this service offers to each of them. 
+<img align="left" alt="SVG" src="https://developer.visa.com/images2/products/visa_account_management_suite/vams_key_stakeholders.jpg" width="100%" height="100%" />  
+  
+  
