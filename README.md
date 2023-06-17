@@ -31,16 +31,7 @@ As one of the security protocols, Visa Developer sandbox secures its connections
 #### Message Level Encryption
   
 Message Level Encryption (MLE) is required for all Card-On-File Data Inquiry implementations. MLE provides an enhanced security for message payload by using asymmetric encryption technique (public-key cryptography). The Card-On-File Data Inquiry request body is expected to be encrypted and the response body from the API will be encrypted as per MLE. You can generate the encryption/decryption key pairs in the Sandbox, Certification, or Production environments. 
-  
- 
-## API Reference
-  
-#### Card-On-File Data Service API
 
-Card-On-File Data API allows to enable digital control capabilities in Issuer’s online mobile application or web application to provide visibility to the consumers where their card (PAN)/token credentials are stored to initiate Card-On-File Data API/e-commerce transactions and where the credentials are updated in case of a card reissuance or token status updates.
-
-<br>
-Card-On-File Data Service (v1 - Latest)
   
 #### User Experience
   
@@ -51,4 +42,11 @@ High-level user experience and the usage of Card-On-File Data Inquiry by the cli
 Key stakeholders involved in the service utilization and the benefits that this service offers to each of them. 
 <img align="left" alt="SVG" src="https://developer.visa.com/images2/products/visa_account_management_suite/vams_key_stakeholders.jpg" width="100%" height="100%" />  
   
+## API Reference
   
+#### Card-On-File Data Service API
+
+Card-On-File Data API allows to enable digital control capabilities in Issuer’s online mobile application or web application to provide visibility to the consumers where their card (PAN)/token credentials are stored to initiate Card-On-File Data API/e-commerce transactions and where the credentials are updated in case of a card reissuance or token status updates.
+
+<br>
+Card-On-File Data Service (v1 - Latest)
