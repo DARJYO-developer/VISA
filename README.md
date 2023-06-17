@@ -1,3 +1,6 @@
+<img align="left" alt="SVG" src="https://developer.visa.com/images/visa_logo.svg" width="100%" height="100%" />
+
+
 # VISA
 ## VTS Payment Technology
 
