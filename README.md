@@ -14,6 +14,6 @@ The token allows payments to be processed without exposing actual account detail
 
 ### Key Features
 
--- Protects sensitive information from theft and fraud
--- Supports online, in-store, and mobile in-app purchases with flexible deployment and management options
--- Simplifies consumer purchasing experience
+<li> Protects sensitive information from theft and fraud
+<li> Supports online, in-store, and mobile in-app purchases with flexible deployment and management options
+<li> Simplifies consumer purchasing experience
